@@ -1,13 +1,13 @@
 ﻿using System;
-using Xamarin.Forms.Platform.iOS;
 using Xamarin.Forms;
+using Xamarin.Forms.Platform.iOS;
 using CustomProgressbar.iOS.Effects;
 
-//[assembly: ResolutionGroupName("TestEffect")]
-[assembly: ExportEffect(typeof(CornerRadius), "CornerEffect")]
+[assembly: ResolutionGroupName("TestEffect")]
+[assembly: ExportEffect(typeof(BorderEffect), "BorderEffect")]
 namespace CustomProgressbar.iOS.Effects
 {
-    public class CornerRadius : PlatformEffect
+    public class BorderEffect : PlatformEffect
     {
         protected override void OnAttached()
         {
@@ -32,12 +32,16 @@ namespace CustomProgressbar.iOS.Effects
             var currentView = sender as View;
             if (currentView == null)
                 return;
-            
+
+            var radius = new nfloat(currentView.Height / 2);
+
             Container.Layer.AllowsEdgeAntialiasing = true;
             Container.Layer.EdgeAntialiasingMask = CoreAnimation.CAEdgeAntialiasingMask.All;
 
-            var radius = new nfloat(currentView.Height / 2);
+            Container.Layer.BorderColor = Color.White.ToCGColor();
+            Container.Layer.BorderWidth = 2;
             Container.Layer.CornerRadius = radius;
+
         }
     }
 }

@@ -1,6 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CustomProgressbar.MyPage" xmlns:views="clr-namespace:CustomProgressbar.Views;assembly=CustomProgressbar">
-    <ContentPage.Content>
-        <views:ProgressBar HorizontalOptions="Start" VerticalOptions="Start" />
-    </ContentPage.Content>
+    <StackLayout BackgroundColor="Green" Padding="5">
+        <views:ProgressBar x:Name="progr" HorizontalOptions="Start" VerticalOptions="Start" />
+        <Button x:Name="forw" Text="Increment" />
+        <Button x:Name="back" Text="Decrement" />
+        <Entry x:Name="entry" />
+        <Button x:Name="setValue" Text="Set value" />
+    </StackLayout>
 </ContentPage>
