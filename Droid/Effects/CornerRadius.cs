@@ -14,13 +14,11 @@ namespace CustomProgressbar.Droid.Effects
     {
         protected override void OnAttached()
         {
-
             var view = Element as View;
             if (view != null)
             {
                 view.SizeChanged += OnElementSizeChanged;
             }
-
         }
 
         protected override void OnDetached()
@@ -30,7 +28,6 @@ namespace CustomProgressbar.Droid.Effects
             {
                 view.SizeChanged -= OnElementSizeChanged;
             }
-
         }
 
         protected override void OnElementPropertyChanged(System.ComponentModel.PropertyChangedEventArgs args)
@@ -38,7 +35,7 @@ namespace CustomProgressbar.Droid.Effects
             base.OnElementPropertyChanged(args);
             if (args.PropertyName == View.BackgroundColorProperty.PropertyName)
             {
-                RedRaw(Element as View);
+                RedRaw();
             }
         }
 
@@ -47,11 +44,12 @@ namespace CustomProgressbar.Droid.Effects
             var elem = sender as View;
             if (elem == null)
                 return;
-            RedRaw(elem);
+            RedRaw();
         }
 
-        void RedRaw(View view)
+        void RedRaw()
         {
+            var view = Element as View;
             var density = Resources.System.DisplayMetrics.Density;
             
             using (var imageBitmap = Bitmap.CreateBitmap((int)(view.Width * density), (int)(view.Height * density), Bitmap.Config.Argb8888))
@@ -62,8 +60,15 @@ namespace CustomProgressbar.Droid.Effects
                 paint.Flags = PaintFlags.AntiAlias;
                 
                 var height = (float)view.Height;
-                
-                canvas.DrawRoundRect(new RectF(0, 0, (float)view.Width * density, height * density), height * density / 2, height * density / 2, paint);
+                var fx = 0f;
+
+                if (ViewEffects.GetRoundCorner(Element))
+                    fx = height * density / 2;
+                else
+                    fx = ViewEffects.GetCornerRadius(view) * density;
+
+                canvas.DrawRoundRect(new RectF(0, 0, (float)view.Width * density, height * density), fx, fx, paint);
+                    
                 canvas.Density = (int)density;
                 
                 Container.Background = new BitmapDrawable(imageBitmap);

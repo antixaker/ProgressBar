@@ -14,7 +14,10 @@ namespace CustomProgressbar.Views
             _textLabel = new Label(){ Text = "0%", TextColor = Color.White, VerticalOptions = LayoutOptions.Center };
 
             _grid = new Grid(){ WidthRequest = 200, HeightRequest = 10, Padding = new Thickness(0), ColumnSpacing = 0 };
-            _grid.Effects.Add(Effect.Resolve("TestEffect.BorderEffect"));
+
+            ViewEffects.SetHasCornerRadius(_grid, true);
+            ViewEffects.SetRoundCorner(_grid, true);
+
             _grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(2, GridUnitType.Star) });
 
             AddColumnsToGrid();
@@ -87,7 +90,10 @@ namespace CustomProgressbar.Views
         Label GetRoundLabel()
         {
             var roundLabel = new Label();
-            roundLabel.Effects.Add(Effect.Resolve("TestEffect.CornerEffect"));
+           
+            ViewEffects.SetHasCornerRadius(roundLabel, true);
+            ViewEffects.SetRoundCorner(roundLabel, true);
+
             return roundLabel;
         }
 

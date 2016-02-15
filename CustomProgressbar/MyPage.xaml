@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CustomProgressbar.MyPage" xmlns:views="clr-namespace:CustomProgressbar.Views;assembly=CustomProgressbar">
     <StackLayout BackgroundColor="Green" Padding="5">
-        <views:ProgressBar x:Name="progr" HorizontalOptions="Start" VerticalOptions="Start" />
+        <!--        <views:ProgressBar x:Name="progr" HorizontalOptions="Start" VerticalOptions="Start" />-->
         <Button x:Name="forw" Text="Increment" />
         <Button x:Name="back" Text="Decrement" />
         <Entry x:Name="entry" />
         <Button x:Name="setValue" Text="Set value" />
+        <views:TECheckbox CornerRadius="3" Text="Научитесь балдеть от плохой погоды, от очередей, пробок, проблем, любого негатива. &#xA;        Такой вот своего рода мазохизм постепенно расчистит небо над Вашим миром. &#xA;        Вам следует задумываться лишь над тем, какой выгодой обернется для Вас т" />
     </StackLayout>
 </ContentPage>

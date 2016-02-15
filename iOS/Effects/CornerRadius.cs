@@ -20,6 +20,7 @@ namespace CustomProgressbar.iOS.Effects
 
         protected override void OnDetached()
         {
+            DisableCornerEffect();
             var currentView = this.Element as View;
             if (currentView != null)
             {
@@ -32,12 +33,21 @@ namespace CustomProgressbar.iOS.Effects
             var currentView = sender as View;
             if (currentView == null)
                 return;
-            
+            SetCornerRadius();
+        }
+
+        void SetCornerRadius()
+        {
             Container.Layer.AllowsEdgeAntialiasing = true;
             Container.Layer.EdgeAntialiasingMask = CoreAnimation.CAEdgeAntialiasingMask.All;
 
-            var radius = new nfloat(currentView.Height / 2);
-            Container.Layer.CornerRadius = radius;
+            var radius = ViewEffects.GetRoundCorner(Element) ? (Element as View).Height / 2 : ViewEffects.GetCornerRadius(Element);//new nfloat(currentView.Height / 2);
+            Container.Layer.CornerRadius = new nfloat(radius);
+        }
+
+        void DisableCornerEffect()
+        {
+            Container.Layer.CornerRadius = 0;
         }
     }
 }
