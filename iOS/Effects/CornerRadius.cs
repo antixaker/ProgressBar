@@ -41,7 +41,7 @@ namespace CustomProgressbar.iOS.Effects
             Container.Layer.AllowsEdgeAntialiasing = true;
             Container.Layer.EdgeAntialiasingMask = CoreAnimation.CAEdgeAntialiasingMask.All;
 
-            var radius = ViewEffects.GetRoundCorner(Element) ? (Element as View).Height / 2 : ViewEffects.GetCornerRadius(Element);//new nfloat(currentView.Height / 2);
+            var radius = ViewEffectExtentions.GetRoundCorner(Element) ? (Element as View).Height / 2 : ViewEffectExtentions.GetCornerRadius(Element);//new nfloat(currentView.Height / 2);
             Container.Layer.CornerRadius = new nfloat(radius);
         }
 

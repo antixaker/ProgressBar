@@ -16,7 +16,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Views\ProgressBar.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\TECheckbox.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\TELabel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewExtentions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewEffectExtentions.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)MyPage.xaml">

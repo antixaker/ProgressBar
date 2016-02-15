@@ -62,10 +62,10 @@ namespace CustomProgressbar.Droid.Effects
                 var height = (float)view.Height;
                 var fx = 0f;
 
-                if (ViewEffects.GetRoundCorner(Element))
+                if (ViewEffectExtentions.GetRoundCorner(Element))
                     fx = height * density / 2;
                 else
-                    fx = ViewEffects.GetCornerRadius(view) * density;
+                    fx = ViewEffectExtentions.GetCornerRadius(view) * density;
 
                 canvas.DrawRoundRect(new RectF(0, 0, (float)view.Width * density, height * density), fx, fx, paint);
                     

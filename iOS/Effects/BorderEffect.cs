@@ -32,16 +32,30 @@ namespace CustomProgressbar.iOS.Effects
             var currentView = sender as View;
             if (currentView == null)
                 return;
+            SetBorder();
 
-            var radius = new nfloat(currentView.Height / 2);
+        }
+
+        void SetBorder()
+        {
+            var currentView = Element as View;
+
+            var radius = 0d; 
+            if (ViewEffectExtentions.GetRoundBorderedCorner(currentView))
+            {
+                radius = currentView.Height / 2;
+            }
+            else
+            {
+                radius = ViewEffectExtentions.GetBorderedCornerRadius(currentView);
+            }
 
             Container.Layer.AllowsEdgeAntialiasing = true;
             Container.Layer.EdgeAntialiasingMask = CoreAnimation.CAEdgeAntialiasingMask.All;
-
+        
             Container.Layer.BorderColor = Color.White.ToCGColor();
             Container.Layer.BorderWidth = 2;
-            Container.Layer.CornerRadius = radius;
-
+            Container.Layer.CornerRadius = new nfloat(radius);
         }
     }
 }

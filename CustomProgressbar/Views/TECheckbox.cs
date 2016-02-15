@@ -32,7 +32,7 @@ namespace CustomProgressbar.Views
             _text.GestureRecognizers.Add(tap);
             _checker.GestureRecognizers.Add(tap);
 
-            ViewEffects.SetHasCornerRadius(_checker, true);
+            ViewEffectExtentions.SetHasCornerRadius(_checker, true);
 
             _layout.Children.Add(_checker);
             _layout.Children.Add(_text);
@@ -91,7 +91,7 @@ namespace CustomProgressbar.Views
             }
             else if (propertyName == CornerRadiusProperty.PropertyName)
             {
-                ViewEffects.SetCornerRadius(_checker, CornerRadius);
+                ViewEffectExtentions.SetCornerRadius(_checker, CornerRadius);
             }
         }
 

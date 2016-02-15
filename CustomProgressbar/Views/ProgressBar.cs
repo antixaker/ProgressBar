@@ -15,8 +15,8 @@ namespace CustomProgressbar.Views
 
             _grid = new Grid(){ WidthRequest = 200, HeightRequest = 10, Padding = new Thickness(0), ColumnSpacing = 0 };
 
-            ViewEffects.SetHasCornerRadius(_grid, true);
-            ViewEffects.SetRoundCorner(_grid, true);
+            ViewEffectExtentions.SetHasBorder(_grid, true);
+            ViewEffectExtentions.SetRoundBorderedCorner(_grid, true);
 
             _grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(2, GridUnitType.Star) });
 
@@ -91,8 +91,8 @@ namespace CustomProgressbar.Views
         {
             var roundLabel = new Label();
            
-            ViewEffects.SetHasCornerRadius(roundLabel, true);
-            ViewEffects.SetRoundCorner(roundLabel, true);
+            ViewEffectExtentions.SetHasCornerRadius(roundLabel, true);
+            ViewEffectExtentions.SetRoundCorner(roundLabel, true);
 
             return roundLabel;
         }
