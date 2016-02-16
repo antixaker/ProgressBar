@@ -41,36 +41,23 @@ namespace CustomProgressbar.Droid.Effects
         void SetBorder()
         {
             var elem = Element as View;
-
             var density = Resources.System.DisplayMetrics.Density;
                 
-            using (var imageBitmap = Bitmap.CreateBitmap((int)((elem.Width + 2) * density), (int)((elem.Height + 1) * density), Bitmap.Config.Argb8888))
-            using (var canvas = new Canvas(imageBitmap))
-            using (var paint = new Paint() { Dither = false, Color = ViewEffectExtentions.GetBorderColor(elem).ToAndroid(), AntiAlias = true })
+            using (var gDrawable = new GradientDrawable())
             {
-                paint.Hinting = PaintHinting.On;
-                paint.Flags = PaintFlags.AntiAlias;
-                paint.SetStyle(Paint.Style.Stroke);
-                paint.StrokeWidth = ViewEffectExtentions.GetBorderWidth(elem) * density;
-                    
-                var height = (float)elem.Height;
-                var rx = 0f;
+                var fx = 0d;
+
                 if (ViewEffectExtentions.GetRoundBorderedCorner(elem))
-                {
-                    rx = height * density / 2;
-                }
+                    fx = elem.Height * density / 2;
                 else
-                {
-                    rx = ViewEffectExtentions.GetBorderedCornerRadius(elem);
-                }
-                    
-                canvas.DrawRoundRect(new RectF(density, density, (float)(elem.Width) * density, (float)(height) * density), rx, rx, paint);
-                canvas.Density = (int)density;
-                    
-                Container.Background = new BitmapDrawable(imageBitmap);
+                    fx = ViewEffectExtentions.GetBorderedCornerRadius(elem) * density;
+
+                gDrawable.SetCornerRadius((float)fx);
+                gDrawable.SetStroke((int)(ViewEffectExtentions.GetBorderWidth(elem) * density), ViewEffectExtentions.GetBorderColor(elem).ToAndroid());
+
+                Container.Background = gDrawable;
             }
         }
-           
     }
 }
 
