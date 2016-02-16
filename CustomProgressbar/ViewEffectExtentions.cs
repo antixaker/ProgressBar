@@ -128,6 +128,32 @@ namespace CustomProgressbar
             return (int)view.GetValue(BorderedCornerRadiusProperty);
         }
 
+        public static readonly BindableProperty BorderColorProperty =
+            BindableProperty.CreateAttached("BorderColor", typeof(Color), typeof(ViewEffectExtentions), Color.Black);
+
+        public static void SetBorderColor(BindableObject view, Color newColor)
+        {
+            view.SetValue(BorderColorProperty, newColor);
+        }
+
+        public static Color GetBorderColor(BindableObject view)
+        {
+            return (Color)view.GetValue(BorderColorProperty);
+        }
+
+        public static readonly BindableProperty BorderWidthProperty =
+            BindableProperty.CreateAttached("BorderWidth", typeof(int), typeof(ViewEffectExtentions), 0);
+
+        public static void SetBorderWidth(BindableObject view, int size)
+        {
+            view.SetValue(BorderWidthProperty, size);
+        }
+
+        public static int GetBorderWidth(BindableObject view)
+        {
+            return (int)view.GetValue(BorderWidthProperty);
+        }
+
         #endregion
     }
 }

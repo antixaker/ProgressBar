@@ -46,12 +46,12 @@ namespace CustomProgressbar.Droid.Effects
                 
             using (var imageBitmap = Bitmap.CreateBitmap((int)((elem.Width + 2) * density), (int)((elem.Height + 1) * density), Bitmap.Config.Argb8888))
             using (var canvas = new Canvas(imageBitmap))
-            using (var paint = new Paint() { Dither = false, Color = Xamarin.Forms.Color.White.ToAndroid(), AntiAlias = true })
+            using (var paint = new Paint() { Dither = false, Color = ViewEffectExtentions.GetBorderColor(elem).ToAndroid(), AntiAlias = true })
             {
                 paint.Hinting = PaintHinting.On;
                 paint.Flags = PaintFlags.AntiAlias;
                 paint.SetStyle(Paint.Style.Stroke);
-                paint.StrokeWidth = 2 * density;
+                paint.StrokeWidth = ViewEffectExtentions.GetBorderWidth(elem) * density;
                     
                 var height = (float)elem.Height;
                 var rx = 0f;

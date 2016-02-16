@@ -53,8 +53,8 @@ namespace CustomProgressbar.iOS.Effects
             Container.Layer.AllowsEdgeAntialiasing = true;
             Container.Layer.EdgeAntialiasingMask = CoreAnimation.CAEdgeAntialiasingMask.All;
         
-            Container.Layer.BorderColor = Color.White.ToCGColor();
-            Container.Layer.BorderWidth = 2;
+            Container.Layer.BorderColor = ViewEffectExtentions.GetBorderColor(currentView).ToCGColor();
+            Container.Layer.BorderWidth = ViewEffectExtentions.GetBorderWidth(currentView);
             Container.Layer.CornerRadius = new nfloat(radius);
         }
     }
