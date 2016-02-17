@@ -17,6 +17,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Views\TECheckbox.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\TELabel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewEffectExtentions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\TETooltip.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\TooltipPeakView.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)MyPage.xaml">

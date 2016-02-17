@@ -112,6 +112,7 @@
     <Compile Include="Effects\CornerRadius.cs" />
     <Compile Include="Effects\BorderEffect.cs" />
     <Compile Include="Renderers\TELabelRenderer.cs" />
+    <Compile Include="Renderers\TooltipPeakViewRenderer.cs" />
   </ItemGroup>
   <Import Project="..\CustomProgressbar\CustomProgressbar.projitems" Label="Shared" Condition="Exists('..\CustomProgressbar\CustomProgressbar.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

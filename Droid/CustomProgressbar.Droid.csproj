@@ -80,6 +80,7 @@
     <Compile Include="Effects\CornerRadius.cs" />
     <Compile Include="Effects\BorderEffect.cs" />
     <Compile Include="Renderers\TELabelRenderer.cs" />
+    <Compile Include="Renderers\TootipPeakViewRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
